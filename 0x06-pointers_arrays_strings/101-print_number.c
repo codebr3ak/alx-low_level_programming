@@ -1,25 +1,24 @@
 #include "main.h"
 
 /**
- * print_number - Prints any integer with putchar
- * @n: Number to prints
- *
- * Return: Null
+ * rot13 - rotate characters 13 places in the alphabet
+ * @s: string
+ * Return: string `s` rotated
  */
-void print_number(int n)
+
+char *rot13(char *s)
 {
-	unsigned int x;
+	int i;
+	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+	char storel[] = "nopqrstuvwxyzabcdefghijklm";
 
-	if (n < 0)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		_putchar('-');
-		n *= -1;
+		if ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
+		{
+			s[i] = (s[i] - 65 > 25) ?
+				storel[s[i] - 97] : storeh[s[i] - 65];
+		}
 	}
-
-	x = n;
-
-	if (x / 10)
-		print_number(x / 10);
-
-	_putchar(x % 10 + '0');
+	return (s);
 }
