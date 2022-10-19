@@ -21,5 +21,4 @@ typedef struct fm
 	void (*p)();
 } format_type;
 
-
 #endif
