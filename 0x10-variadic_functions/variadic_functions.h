@@ -20,5 +20,4 @@ typedef struct fm
 	char *fm;
 	void (*p)();
 } format_type;
-
 #endif
